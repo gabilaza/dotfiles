@@ -1,0 +1,34 @@
+[global]
+    font = "SF Mono Regular 8"
+    monitor = 0
+    follow = mouse
+    transparency = 0
+
+    progress_bar = true
+    progress_bar_horizontal_alignment = right
+
+    indicate_hidden = true
+    sort = yes
+
+    alignment = left
+    line_height = 0
+    separator_color = "#585858"
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    corner_radius = 8
+
+[urgency_low]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 5
+
+[urgency_normal]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 20
+
+[urgency_critical]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 0
