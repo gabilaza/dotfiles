@@ -31,3 +31,6 @@ export PROMPT='%F{cyan}%n%f@%F{green}%m:%F{yellow}%~%f$ '
 export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/nvim/mason/packages/jdtls/lombok.jar"
 
 export CLICOLOR=1
+
+# Rust
+source "$HOME/.cargo/env"
