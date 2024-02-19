@@ -2,6 +2,7 @@ HISTSIZE=10000000
 HISTFILESIZE=10000000
 
 alias vi=nvim
+alias enter=tmux-sessionizer
 
 alias gitl="git log --all --decorate --oneline --graph"
 
