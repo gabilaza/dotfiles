@@ -78,4 +78,14 @@ require("lspconfig").clangd.setup {}
 
 require('lspconfig').csharp_ls.setup {}
 
+require("lspconfig").gopls.setup {}
+
+require("lspconfig").sourcekit.setup {}
+
+require("lspconfig").elixirls.setup {
+    cmd = { "/Users/glaza/.lsp/elixir-language-server/language_server.sh" }
+}
+
+require("lspconfig").rust_analyzer.setup {}
+
 return M

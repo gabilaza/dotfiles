@@ -1,5 +1,5 @@
 local options = {
-    ensure_installed = { "jdtls", "bash-language-server", "cmake-language-server", "dockerfile-language-server", "yaml-language-server", "jedi-language-server", "lua-language-server", "html-lsp", "css-lsp", "typescript-language-server", "ltex-ls", "clangd", "csharp-language-server" }, -- not an option from mason.nvim
+    ensure_installed = { "jdtls", "bash-language-server", "cmake-language-server", "dockerfile-language-server", "yaml-language-server", "jedi-language-server", "lua-language-server", "html-lsp", "css-lsp", "typescript-language-server", "ltex-ls", "clangd", "csharp-language-server", "gopls", "elixir-ls", "rust-analyzer" }, -- not an option from mason.nvim
 
     PATH = "skip",
 
