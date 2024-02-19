@@ -1,5 +1,7 @@
 HISTSIZE=10000000
 HISTFILESIZE=10000000
+SAVEHIST=10000000
+setopt appendhistory
 
 alias vi=nvim
 alias enter=tmux-sessionizer
