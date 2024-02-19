@@ -44,3 +44,4 @@ sshDeactivate() {
         unset _OLD_SSH_GITHUB_PS1
     fi
 }
+. "$HOME/.cargo/env"
