@@ -43,6 +43,7 @@ function sshKeys {
 }
 
 export PATH="$PATH:$HOME/.dotnet/tools"
+export PATH="$PATH:$HOME/bin"
 
 export FZF_DEFAULT_OPTS="
     --color=fg:#908caa,bg:#191724,hl:#ebbcba
