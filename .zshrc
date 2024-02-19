@@ -34,3 +34,10 @@ export CLICOLOR=1
 
 # Rust
 source "$HOME/.cargo/env"
+
+# SSH Keys
+function sshKeys {
+    ssh-add --apple-use-keychain "$HOME/.ssh/github_access"
+    ssh-add --apple-use-keychain "$HOME/.ssh/github_signing"
+    ssh-add --apple-use-keychain "$HOME/.ssh/arch_linux"
+}
