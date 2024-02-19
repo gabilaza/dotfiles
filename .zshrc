@@ -30,3 +30,4 @@ ssho () { ssh -t "$1" "$2" "export TERM=xterm-256color; bash -l"; }
 export PROMPT='%F{cyan}%n%f@%F{green}%m:%F{yellow}%~%f$ '
 export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/nvim/mason/packages/jdtls/lombok.jar"
 
+export CLICOLOR=1
