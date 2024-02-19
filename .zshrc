@@ -44,6 +44,11 @@ function sshKeys {
 
 export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$PATH:$HOME/bin"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
 
 export FZF_DEFAULT_OPTS="
     --color=fg:#908caa,bg:#191724,hl:#ebbcba
