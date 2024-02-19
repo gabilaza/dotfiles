@@ -1,13 +1,7 @@
 local plugins = {
     {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-        opts = function()
-            return require "plugins.configs.gruvbox"
-        end,
-        config = function(_, opts)
-            require("gruvbox").setup(opts)
-        end,
+        "rose-pine/neovim",
+        name = "rose-pine"
     },
 
     {

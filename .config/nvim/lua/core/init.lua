@@ -41,7 +41,7 @@ opt.showmode = false
 
 -- gruvbox
 o.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme rose-pine]])
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
