@@ -6,15 +6,16 @@ setopt appendhistory
 alias vi=nvim
 alias enter=tmux-sessionizer
 
-alias gitl="git log --all --decorate --oneline --graph"
 alias curltime="curl -w \"@$HOME/.curl-format.txt\" -o /dev/null -s "
 
 alias dotfilesl="dotfiles log --all --decorate --oneline --graph"
 alias dotfiless="dotfiles status"
 alias dotfilesd="dotfiles diff"
 
+alias gitl="git log --all --decorate --oneline --graph"
 alias gits="git status"
 alias gitd="git diff"
+
 alias la="ls -al --color=auto"
 alias ls="ls --color=auto"
 alias ll="ls -l --color=auto"
