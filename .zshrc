@@ -18,7 +18,8 @@ alias gitd="git diff"
 alias la="ls -al --color=auto"
 alias ls="ls --color=auto"
 alias ll="ls -l --color=auto"
-alias lg="lazygit"
+alias lg="lazygit --use-config-file $HOME/.config/lazygit/config.yml"
+alias ld="lazydocker"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 export VISUAL=vim
