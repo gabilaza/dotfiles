@@ -7,6 +7,7 @@ alias vi=nvim
 alias enter=tmux-sessionizer
 
 alias gitl="git log --all --decorate --oneline --graph"
+alias curltime="curl -w \"@$HOME/.curl-format.txt\" -o /dev/null -s "
 
 alias gits="git status"
 alias gitd="git diff"
