@@ -9,6 +9,10 @@ alias enter=tmux-sessionizer
 alias gitl="git log --all --decorate --oneline --graph"
 alias curltime="curl -w \"@$HOME/.curl-format.txt\" -o /dev/null -s "
 
+alias dotfilesl="dotfiles log --all --decorate --oneline --graph"
+alias dotfiless="dotfiles status"
+alias dotfilesd="dotfiles diff"
+
 alias gits="git status"
 alias gitd="git diff"
 alias la="ls -al --color=auto"
