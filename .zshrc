@@ -21,6 +21,7 @@ alias ls="ls --color=auto"
 alias ll="ls -l --color=auto"
 alias lg="lazygit --use-config-file $HOME/.config/lazygit/config.yml"
 alias ld="lazydocker"
+alias dotfileslg='lg --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 export VISUAL=nvim
