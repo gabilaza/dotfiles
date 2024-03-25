@@ -79,7 +79,10 @@ M.general = {
         ["<leader>$"] = { "<cmd> BufferLineGoToBuffer -1<CR>" },
 
         -- Makefile
-        ["<leader>r"] = { "<cmd> make<CR>" }
+        ["<leader>r"] = { "<cmd> make<CR>" },
+
+        -- Ex
+        ["<C-n>"] = { "<cmd> Ex<CR>"}
     },
 
     i = {
