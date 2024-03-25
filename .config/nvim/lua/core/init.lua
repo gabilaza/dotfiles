@@ -39,7 +39,7 @@ opt.ruler = false
 opt.showmode = false
 
 
--- gruvbox
+-- rose-pine
 o.background = "dark"
 vim.cmd([[colorscheme rose-pine]])
 
