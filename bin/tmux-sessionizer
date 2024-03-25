@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ $# -eq 1 ]]; then
-    selected=$1
+    selected=$(pwd)
 else
     selected=$(find ~/projects ~/contrib ~/security ~/personal ~/uaic ~/env -mindepth 1 -maxdepth 1 -type d | tr -s / | fzf)
 fi
@@ -10,7 +10,11 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+if [[ $# -eq 1 ]]; then
+    selected_name=$(echo "$1" | tr . _)
+else
+    selected_name=$(basename "$selected" | tr . _)
+fi
 tmux_running=$(pgrep tmux)
 
 if ! tmux has-session -t $selected_name 2> /dev/null; then
