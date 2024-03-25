@@ -279,4 +279,21 @@ M.comment = {
     },
 }
 
+M.harpoon = {
+    plugin = true,
+
+    n = {
+        ["<leader>sa"] = { "<cmd>lua require('harpoon.mark').add_file()<CR>" },
+        ["<leader>sc"] = { "<cmd>lua require('harpoon.mark').clear_all()<CR>" },
+        ["<leader>sm"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
+        ["<leader>sn"] = { "<cmd>lua require('harpoon.ui').nav_next()<CR>" },
+        ["<leader>sp"] = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>" },
+
+        ["<leader>sh"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>" },
+        ["<leader>sj"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<CR>" },
+        ["<leader>sk"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<CR>" },
+        ["<leader>sl"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<CR>" },
+    },
+}
+
 return M
