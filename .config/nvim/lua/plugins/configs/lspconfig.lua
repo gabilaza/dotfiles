@@ -88,4 +88,6 @@ require("lspconfig").elixirls.setup {
 
 require("lspconfig").rust_analyzer.setup {}
 
+require("lspconfig").dartls.setup {}
+
 return M
