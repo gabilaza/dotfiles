@@ -5,6 +5,7 @@ setopt appendhistory
 
 alias vi=nvim
 alias enter=tmux-sessionizer
+alias list=tmux-select
 
 alias curltime="curl -w \"@$HOME/.curl-format.txt\" -o /dev/null -s "
 
