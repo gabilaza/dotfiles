@@ -1,5 +1,21 @@
 local plugins = {
     {
+        "stevearc/oil.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+
+        cmd = "Oil",
+        init = function()
+            require("core.utils").load_mappings "oil"
+        end,
+        opts = function()
+            return require "plugins.configs.oil"
+        end,
+        config = function(_, opts)
+            require("oil").setup(opts)
+        end,
+    },
+
+    {
         "rose-pine/neovim",
         name = "rose-pine"
     },

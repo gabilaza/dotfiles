@@ -82,7 +82,7 @@ M.general = {
         ["<leader>r"] = { "<cmd> make<CR>" },
 
         -- Ex
-        ["<C-n>"] = { "<cmd> Ex<CR>"}
+        -- ["<C-n>"] = { "<cmd> Ex<CR>"}
     },
 
     i = {
@@ -190,6 +190,14 @@ M.nvimtree = {
         ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>" },
 
         ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>" },
+    },
+}
+
+M.oil = {
+    plugin = true,
+
+    n = {
+        ["<C-n>"] = { "<cmd> Oil <CR>" },
     },
 }
 
