@@ -28,7 +28,11 @@ M.sections = {
     lualine_a = {"mode"},
     lualine_b = {"branch", "diff", "diagnostics"},
     lualine_c = {"filename"},
-    lualine_x = {"encoding", "fileformat", "filetype"},
+    lualine_x = {
+        function()
+            return require("bongo_cat").component()
+        end,
+        "encoding", "fileformat", "filetype"},
     lualine_y = {"progress"},
     lualine_z = {"searchcount", "location"}
 }

@@ -38,10 +38,11 @@ local options = {
     mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<CR>"] = cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        },
+        -- Don't select on enter
+        -- ["<CR>"] = cmp.mapping.confirm {
+        --   behavior = cmp.ConfirmBehavior.Replace,
+        --   select = true,
+        -- },
         -- TODO: fix tab
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then

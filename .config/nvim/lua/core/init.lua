@@ -39,9 +39,10 @@ opt.ruler = false
 opt.showmode = false
 
 
--- gruvbox
+-- rose-pine
 o.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd([[colorscheme rose-pine]])
+vim.cmd([[colorscheme terafox]])
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
@@ -53,6 +54,12 @@ vim.env.PATH = vim.env.PATH .. (is_windows and ";" or ":") .. vim.fn.stdpath "da
 opt.shortmess:append "sI"
 
 g.mapleader = " "
+
+g.netrw_browse_split = 0
+g.netrw_banner = 0
+g.netrw_winsize = 25
+
+g.copilot_enabled = false
 
 -- disable some default providers
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do

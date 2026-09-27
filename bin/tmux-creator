@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    new_directory=$1
+else
+    exit 0
+fi
+mkdir -p $new_directory
+selected=$1
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+if [[ $# -eq 1 ]]; then
+    selected_name=$(echo "$(basename $1)" | tr . _)
+else
+    selected_name=$(basename "$selected" | tr . _)
+fi
+tmux_running=$(pgrep tmux)
+
+if ! tmux has-session -t $selected_name 2> /dev/null; then
+    tmux new-session -ds $selected_name -c $selected
+fi
+
+if [[ -z $TMUX ]]; then
+    tmux attach -t $selected_name
+else
+    tmux switch-client -t $selected_name
+fi

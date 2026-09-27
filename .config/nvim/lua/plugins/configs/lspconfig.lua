@@ -30,14 +30,14 @@ M.capabilities.textDocument.completion.completionItem = {
     },
 }
 
-require("lspconfig").lua_ls.setup {
+vim.lsp.config("lua_ls", {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
 
     settings = {
         Lua = {
             diagnostics = {
-                globals = { "vim" },
+                globals = { "vim", "love" },
             },
             workspace = {
                 library = {
@@ -51,31 +51,67 @@ require("lspconfig").lua_ls.setup {
             },
         },
     },
-}
+})
+vim.lsp.enable("lua_ls")
 
 -- TODO: maybe add lombok from here not from bashrc
-require("lspconfig").jdtls.setup {}
+vim.lsp.config("jdtls", {})
+vim.lsp.enable("jdtls")
 
-require("lspconfig").bashls.setup {}
+vim.lsp.config("bashls", {})
+vim.lsp.enable("bashls")
 
-require("lspconfig").cmake.setup {}
+vim.lsp.config("cmake", {})
+vim.lsp.enable("cmake")
 
-require("lspconfig").dockerls.setup {}
+vim.lsp.config("dockerls", {})
+vim.lsp.enable("dockerls")
 
-require("lspconfig").yamlls.setup {}
+vim.lsp.config("yamlls", {})
+vim.lsp.enable("yamlls")
 
-require("lspconfig").jedi_language_server.setup {}
+vim.lsp.config("jedi_language_server", {})
+vim.lsp.enable("jedi_language_server")
 
-require("lspconfig").html.setup {}
+vim.lsp.config("html", {})
+vim.lsp.enable("html")
 
-require("lspconfig").tsserver.setup {}
+vim.lsp.config("ts_ls", {})
+vim.lsp.enable("ts_ls")
 
-require("lspconfig").cssls.setup {}
+vim.lsp.config("cssls",{})
+vim.lsp.enable("cssls")
 
-require("lspconfig").ltex.setup {}
+vim.lsp.config("ltex", {})
+vim.lsp.enable("ltex")
 
-require("lspconfig").clangd.setup {}
+vim.lsp.config("clangd", {})
+vim.lsp.enable("clangd")
 
-require('lspconfig').csharp_ls.setup {}
+vim.lsp.config("csharp_ls", {})
+vim.lsp.enable("csharp_ls")
+
+vim.lsp.config("gopls", {})
+vim.lsp.enable("gopls")
+
+-- vim.lsp.config("sourcekit", {})
+-- vim.lsp.enable("sourcekit")
+
+vim.lsp.config("elixirls", {
+    cmd = { "/Users/glaza/.lsp/elixir-language-server/language_server.sh" }
+})
+vim.lsp.enable("elixirls")
+
+vim.lsp.config("rust_analyzer", {})
+vim.lsp.enable("rust_analyzer")
+
+vim.lsp.config("dartls", {})
+vim.lsp.enable("dartls")
+
+vim.lsp.config("zls", {})
+vim.lsp.enable("zls")
+
+vim.lsp.config("gleam", {})
+vim.lsp.enable("gleam")
 
 return M

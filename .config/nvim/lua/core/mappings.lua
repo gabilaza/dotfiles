@@ -79,7 +79,10 @@ M.general = {
         ["<leader>$"] = { "<cmd> BufferLineGoToBuffer -1<CR>" },
 
         -- Makefile
-        ["<leader>r"] = { "<cmd> make<CR>" }
+        ["<leader>r"] = { "<cmd> make<CR>" },
+
+        -- Ex
+        -- ["<C-n>"] = { "<cmd> Ex<CR>"}
     },
 
     i = {
@@ -190,6 +193,14 @@ M.nvimtree = {
     },
 }
 
+M.oil = {
+    plugin = true,
+
+    n = {
+        ["<C-n>"] = { "<cmd> Oil <CR>" },
+    },
+}
+
 M.telescope = {
     plugin = true,
 
@@ -273,6 +284,23 @@ M.comment = {
 
     v = {
         ["<leader>/"] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>" },
+    },
+}
+
+M.harpoon = {
+    plugin = true,
+
+    n = {
+        ["<leader>sa"] = { "<cmd>lua require('harpoon.mark').add_file()<CR>" },
+        ["<leader>sc"] = { "<cmd>lua require('harpoon.mark').clear_all()<CR>" },
+        ["<leader>sm"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
+        ["<leader>sn"] = { "<cmd>lua require('harpoon.ui').nav_next()<CR>" },
+        ["<leader>sp"] = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>" },
+
+        ["<leader>sh"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>" },
+        ["<leader>sj"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<CR>" },
+        ["<leader>sk"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<CR>" },
+        ["<leader>sl"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<CR>" },
     },
 }
 

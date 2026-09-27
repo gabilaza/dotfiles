@@ -1,6 +1,7 @@
 HISTSIZE=10000000
 HISTFILESIZE=10000000
-shopt -s histappend
+SAVEHIST=10000000
+setopt appendhistory
 
 alias vi=nvim
 alias enter=tmux-sessionizer
@@ -23,39 +24,41 @@ alias gitd="git diff"
 alias la="ls -al --color=auto"
 alias ls="ls --color=auto"
 alias ll="ls -l --color=auto"
-alias lg="lazygit"
+alias lg="lazygit --use-config-file $HOME/.config/lazygit/config.yml"
 alias ld="lazydocker"
 
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias gitFormat='git show --diff-filter=AM --pretty="" --name-only HEAD | grep java$ | xargs java -jar ~/java/google-java-format-1.16.0-all-deps.jar -a -i && git show --diff-filter=AM --pretty="" --name-only HEAD | xargs git add'
 alias javaFormat='find src/ -type f | grep java$ | xargs java -jar ~/java/google-java-format-1.16.0-all-deps.jar -a -i'
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 sshColor () { ssh -t "$1" "$2" "export TERM=xterm-256color; bash -l"; }
 
-export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+export PROMPT='%F{red}[%f%F{cyan}%n%f@%F{green}%m:%F{yellow}%~%f%F{red}]%f$ '
 export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/nvim/mason/packages/jdtls/lombok.jar"
+
+export CLICOLOR=1
 
 sshKeys () {
     echo "WARNING" # ctrl+c not working
     eval $(ssh-agent -s) # maybe can fail ssh-agent and ssh-add
     if ssh-add ~/.ssh/github_access && ssh-add ~/.ssh/github_signing && ssh-add ~/.ssh/thehouse; then
-        _OLD_SSH_KEYS_PS1="${PS1:-}"
-        PS1="(ssh-keys) ${PS1:-}"
-        export PS1
+        _OLD_SSH_KEYS_PROMPT="${PROMPT:-}"
+        PROMPT="(ssh-keys) ${PROMPT:-}"
+        export PROMPT
     else
         eval $(ssh-agent -k)
     fi
 }
 
-sshKeysDeactivate() {
+sshKeysDeactivate () {
     eval $(ssh-agent -k) # maybe can fail ssh-agent
-    if [ -n "${_OLD_SSH_KEYS_PS1:-}" ] ; then
-        PS1="${_OLD_SSH_KEYS_PS1:-}"
-        export PS1
-        unset _OLD_SSH_KEYS_PS1
+    if [ -n "${_OLD_SSH_KEYS_PROMPT:-}" ] ; then
+        PROMPT="${_OLD_SSH_KEYS_PROMPT:-}"
+        export PROMPT
+        unset _OLD_SSH_KEYS_PROMPT
     fi
 }
 
@@ -70,4 +73,4 @@ export FZF_DEFAULT_OPTS="
     --color=spinner:#fda47f,info:#a1cdd8,separator:#152529
     --color=pointer:#ad6c7c,marker:#e85c51,prompt:#e6eaea"
 
-. "$HOME/.cargo/env"
+source "$HOME/.cargo/env"

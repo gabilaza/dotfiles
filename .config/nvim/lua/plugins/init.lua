@@ -1,4 +1,37 @@
 local plugins = {
+    -- {
+    --     "github/copilot.vim",
+    --
+    --     cmd = "Copilot",
+    --     -- opts = function()
+    --     --     return require "plugins.configs.copilot"
+    --     -- end,
+    --     -- config = function(_, opts)
+    --     --     require("copilot").setup(opts)
+    --     -- end,
+    -- },
+
+    {
+        "stevearc/oil.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+
+        cmd = "Oil",
+        init = function()
+            require("core.utils").load_mappings "oil"
+        end,
+        opts = function()
+            return require "plugins.configs.oil"
+        end,
+        config = function(_, opts)
+            require("oil").setup(opts)
+        end,
+    },
+
+    {
+        "rose-pine/neovim",
+        name = "rose-pine"
+    },
+
     {
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
@@ -10,19 +43,39 @@ local plugins = {
         end,
     },
 
+    { "EdenEast/nightfox.nvim" },
+
     {
-        "nvim-tree/nvim-tree.lua",
-        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+        "ThePrimeagen/harpoon",
+        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = true,
         init = function()
-            require("core.utils").load_mappings "nvimtree"
+            require("core.utils").load_mappings "harpoon"
         end,
-        opts = function()
-            return require "plugins.configs.nvimtree"
-        end,
-        config = function(_, opts)
-            require("nvim-tree").setup(opts)
-        end,
+        keys = {
+            { "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file with harpoon" },
+            { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Go to next harpoon mark" },
+            { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Go to previous harpoon mark" },
+            { "<leader>ha", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Show harpoon marks" },
+        },
     },
+
+    -- {
+    --     "nvim-tree/nvim-tree.lua",
+    --     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    --     init = function()
+    --         require("core.utils").load_mappings "nvimtree"
+    --     end,
+    --     opts = function()
+    --         return require "plugins.configs.nvimtree"
+    --     end,
+    --     config = function(_, opts)
+    --         require("nvim-tree").setup(opts)
+    --     end,
+    -- },
 
     {
         "nvim-telescope/telescope.nvim",
@@ -78,15 +131,30 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        lazy = false,
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+        branch = "main",
         init = function()
+            require("nvim-treesitter").install({ "elixir", "bash", "c", "c_sharp", "cmake", "cpp", "css", "dockerfile", "go", "html", "java", "javascript", "json", "latex", "lua" , "markdown", "python", "query", "regex", "rust", "scala", "sql", "typescript", "vim", "vimdoc", "yaml", "gleam" })
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = { "elixir", "bash", "c", "c_sharp", "cmake", "cpp", "css", "dockerfile", "go", "html", "java", "javascript", "json", "latex", "lua" , "markdown", "python", "query", "regex", "rust", "scala", "sql", "typescript", "vim", "vimdoc", "yaml", "gleam" },
+                callback = function()
+                  -- syntax highlighting, provided by Neovim
+                  vim.treesitter.start()
+                  -- folds, provided by Neovim
+                  vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+                  -- vim.wo.foldmethod = 'expr'
+                  -- indentation, provided by nvim-treesitter
+                  vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+                end,
+            })
             require("core.utils").lazy_load "nvim-treesitter"
         end,
         opts = function()
             return require "plugins.configs.treesitter"
         end,
         config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
+            require("nvim-treesitter").setup(opts)
         end,
     },
 

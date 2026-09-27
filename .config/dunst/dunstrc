@@ -1,5 +1,5 @@
 [global]
-    font = "SF Mono Regular 8"
+    font = "Roboto Mono for Powerline"
     monitor = 0
     follow = mouse
     transparency = 0
