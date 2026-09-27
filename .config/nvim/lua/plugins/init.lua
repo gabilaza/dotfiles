@@ -1,4 +1,16 @@
 local plugins = {
+    -- {
+    --     "github/copilot.vim",
+    --
+    --     cmd = "Copilot",
+    --     -- opts = function()
+    --     --     return require "plugins.configs.copilot"
+    --     -- end,
+    --     -- config = function(_, opts)
+    --     --     require("copilot").setup(opts)
+    --     -- end,
+    -- },
+
     {
         "stevearc/oil.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -19,6 +31,19 @@ local plugins = {
         "rose-pine/neovim",
         name = "rose-pine"
     },
+
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        opts = function()
+            return require "plugins.configs.gruvbox"
+        end,
+        config = function(_, opts)
+            require("gruvbox").setup(opts)
+        end,
+    },
+
+    { "EdenEast/nightfox.nvim" },
 
     {
         "ThePrimeagen/harpoon",
@@ -106,15 +131,30 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        lazy = false,
         cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+        branch = "main",
         init = function()
+            require("nvim-treesitter").install({ "elixir", "bash", "c", "c_sharp", "cmake", "cpp", "css", "dockerfile", "go", "html", "java", "javascript", "json", "latex", "lua" , "markdown", "python", "query", "regex", "rust", "scala", "sql", "typescript", "vim", "vimdoc", "yaml", "gleam" })
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = { "elixir", "bash", "c", "c_sharp", "cmake", "cpp", "css", "dockerfile", "go", "html", "java", "javascript", "json", "latex", "lua" , "markdown", "python", "query", "regex", "rust", "scala", "sql", "typescript", "vim", "vimdoc", "yaml", "gleam" },
+                callback = function()
+                  -- syntax highlighting, provided by Neovim
+                  vim.treesitter.start()
+                  -- folds, provided by Neovim
+                  vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+                  -- vim.wo.foldmethod = 'expr'
+                  -- indentation, provided by nvim-treesitter
+                  vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+                end,
+            })
             require("core.utils").lazy_load "nvim-treesitter"
         end,
         opts = function()
             return require "plugins.configs.treesitter"
         end,
         config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
+            require("nvim-treesitter").setup(opts)
         end,
     },
 
